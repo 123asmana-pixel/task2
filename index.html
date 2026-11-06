@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="dark" />
+<title>تحدّي تطوير الويب | 20 سؤالًا — الطالب والمحاضر</title>
+<style>
+:root{color-scheme:dark;--bg:#071125;--card:#121e3c;--card2:#1c2a4c;--blue:#77a7ff;--cyan:#67ebef;--purple:#af9aff;--green:#49dfae;--red:#ff889e;--text:#f7fbff;--muted:#b7c9e8;--border:rgba(170,205,255,.20)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse 60% 60% at 96% 2%,rgba(123,76,227,.21),transparent 78%),radial-gradient(ellipse 65% 45% at 0% 95%,rgba(11,162,190,.17),transparent 75%),var(--bg);color:var(--text);font-family:Tahoma,"Segoe UI",Arial,sans-serif;line-height:1.6;min-height:100vh}
+button,input{font:inherit}
+button{cursor:pointer;transition:filter .15s ease,border-color .15s ease,transform .15s ease}
+button:hover:not(:disabled){filter:brightness(1.12)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+button:disabled{opacity:.45;cursor:not-allowed}
+.page{min-height:100dvh;max-width:1280px;margin:auto;padding:clamp(14px,3vw,38px);display:flex;flex-direction:column;gap:clamp(18px,3vw,34px)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:clamp(17px,2vw,25px)}
+.logo{height:46px;width:46px;border-radius:14px;background:linear-gradient(130deg,#6158da,#45dfdf);display:grid;place-items:center;font-size:27px;box-shadow:0 12px 24px #39b9cf20}
+.badge{border:1px solid var(--border);border-radius:30px;padding:7px 15px;background:#ffffff09;font-size:13px;color:#d7e7ff}
+.panel{width:100%;flex:1;display:flex;flex-direction:column;justify-content:center;max-width:1000px;margin:auto}
+.hidden{display:none!important}
+.center{text-align:center}
+.eyebrow{color:var(--cyan);font-size:clamp(16px,2vw,22px);font-weight:800;margin:0 0 10px}
+h1{font-size:clamp(34px,5.3vw,66px);line-height:1.3;margin:0 0 15px;letter-spacing:-.6px}
+.gradient{background:linear-gradient(90deg,#5ff0ec,#87b4ff,#bf9cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{font-size:clamp(16px,1.9vw,22px);color:#cfddf4;max-width:790px;margin:0 auto 20px;line-height:1.9}
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px auto;max-width:900px;width:100%}
+.mode{border:2px solid var(--border);border-radius:20px;text-align:right;background:#152242cc;color:inherit;padding:18px 20px;min-height:126px}
+.mode.active{border-color:var(--cyan);background:#183450;box-shadow:0 0 0 2px #77ecfa10}
+.modeicon{font-size:27px;display:block;margin-bottom:5px}.modetitle{font-weight:900;font-size:clamp(18px,2vw,24px)}.modedesc{font-size:14px;color:#b9d0ed;display:block;margin-top:3px}
+.entry{background:#ffffff08;border:1px solid var(--border);padding:clamp(15px,2.8vw,24px);border-radius:20px;text-align:right;max-width:900px;width:100%;margin:0 auto 16px;display:grid;gap:8px}
+.entry label{font-weight:800;font-size:19px}.entry input{width:100%;background:#0b1731;color:#fff;border:1px solid #779ac2;border-radius:14px;padding:14px 18px;font-size:21px;text-align:right}
+.entry input::placeholder{color:#8094bd}.small{font-size:13px;color:#b6ccec}.error{color:#ffb3c0;font-size:14px;font-weight:700;min-height:20px}
+.primary{border:0;border-radius:15px;color:#05172f;font-weight:900;font-size:clamp(17px,1.9vw,23px);background:linear-gradient(110deg,#64ecf0,#8db5ff);padding:14px 28px;box-shadow:0 10px 25px #1ba1db23}
+.secondary{border:1px solid #647aab;border-radius:14px;background:#ffffff0d;color:#eaf2ff;padding:13px 22px;font-size:clamp(16px,1.4vw,19px);font-weight:800}
+.facts{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;color:#c5d7ee;font-size:13px;margin-top:20px}.facts span{background:#ffffff0c;border:1px solid var(--border);padding:7px 12px;border-radius:12px}
+.quiztop{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#e1e9ff}
+.tag{background:#2d347a;border:1px solid #9da4f3;padding:8px 16px;border-radius:32px;font-weight:900}
+.topic{color:var(--cyan);font-size:clamp(13px,1.4vw,18px);font-weight:800}
+.progress{height:10px;background:#2b3b60;border-radius:10px;overflow:hidden;margin:16px 0 25px}
+.progressfill{height:100%;background:linear-gradient(90deg,#59e4ef,#977cff);transition:width .2s;width:0}
+.question{font-size:clamp(26px,3.6vw,45px);font-weight:900;line-height:1.55;margin:6px 0 26px}
+.answers{display:grid;gap:13px}
+.answer{display:flex;align-items:center;gap:20px;width:100%;min-height:74px;border:2px solid #425778;border-radius:18px;background:linear-gradient(115deg,#172543,#1b2b4d);padding:14px 19px;color:#fff;text-align:right;font-size:clamp(18px,2.15vw,27px);font-weight:800}
+.answer.selected{border-color:#78bdff;background:#263d62}
+.answer.correct{border-color:var(--green);background:#0d423a}
+.answer.wrong{border-color:var(--red);background:#4d2537}
+.letter{display:grid;place-items:center;flex:none;border-radius:11px;background:#2f4061;min-width:46px;height:46px;color:#f6fbff;font-family:Arial,sans-serif;direction:ltr}
+.answer.correct .letter{background:var(--green);color:#082f28}.answer.wrong .letter{background:var(--red);color:#3a1220}
+.feedback{padding:16px 20px;border:1px solid #58d8a7;border-radius:15px;background:#13514480;color:#e7fff5;margin-top:15px;font-size:clamp(17px,1.5vw,22px)}
+.feedback strong{display:block;color:#93ffd1}.tip{color:#a9bedf;font-size:clamp(14px,1.2vw,16px);margin:12px 0 0}
+.controls{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:23px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.final{max-width:970px;margin:0 auto;text-align:center;width:100%}
+.trophy{font-size:clamp(60px,9vw,98px);line-height:1.1}
+.final h2{font-size:clamp(29px,4vw,52px);margin:10px 0}
+.final .message{color:#d0dff5;font-size:clamp(17px,1.85vw,24px);line-height:1.9;margin:0 auto 20px;max-width:850px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}
+.stat{background:linear-gradient(145deg,#1a2b4d,#14223c);border:1px solid var(--border);border-radius:18px;padding:17px 8px}
+.statnum{font-size:clamp(25px,3.5vw,44px);font-weight:900;color:#bcefff;line-height:1.3;direction:ltr}
+.statlabel{font-size:clamp(13px,1.4vw,17px);color:#c8dcf3}
+.stat.good .statnum{color:var(--green)}.stat.bad .statnum{color:#ffb7c4}
+.endbuttons{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:14px}
+.review{margin-top:24px;text-align:right;max-height:none}
+.review h3{font-size:clamp(20px,2.3vw,27px)}
+.reviewitem{background:#101e38;border:1px solid #547095;border-radius:15px;padding:16px 20px;margin:12px 0}
+.reviewitem h4{font-size:18px;margin:0 0 8px}.reviewitem p{margin:3px 0;font-size:16px;color:#cadff5}
+.reviewitem .red{color:#ffb0bd}.reviewitem .green{color:#77ffca}
+.footer{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;color:#91abd1;font-size:13px}
+.footer button{border:0;background:none;color:#b2dfff;text-decoration:underline;font-size:13px;cursor:pointer}
+.note{border-right:4px solid #6acbff;padding:9px 14px;background:#1e35504a;border-radius:7px;text-align:right;color:#bed4f2;font-size:14px;margin:18px auto 0;max-width:850px}
+@media(max-width:630px){.modes{grid-template-columns:1fr}.mode{min-height:90px}.quiztop{font-size:13px}.stats{grid-template-columns:repeat(2,1fr)}.controls{justify-content:center}.actions{width:100%;justify-content:center}.actions button{flex:1}.answer{gap:10px}.letter{min-width:38px;height:38px}.page{gap:12px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@media print{
+ :root{color-scheme:light}body{background:white!important;color:#111!important;font-family:Tahoma,Arial,sans-serif}
+ .top,.footer,.endbuttons,.review,.note{display:none!important}
+ .page{max-width:none;min-height:0;padding:0}.panel{max-width:100%}.final{color:black}
+ .final h2,.final p,.statnum,.statlabel,.stat{color:#111!important}
+ .stat{background:#fff!important;border:1px solid #888!important}
+ .message{color:#111!important}
+}
+</style>
+</head>
+<body>
+<main class="page">
+<header class="top"><div class="brand"><div class="logo" aria-hidden="true">✦</div><span>تحدّي تطوير الويب</span></div><span class="badge">HTML • CSS • JavaScript • UI / UX</span></header>
+<section class="panel center" id="intro">
+ <p class="eyebrow">🎯 مسابقة تعليمية تفاعلية</p>
+ <h1>اتعلم، جاوب، وشوف <span class="gradient">نتيجتك بنفسك!</span></h1>
+ <p class="sub">٢٠ سؤال سهل عن أساسيات تطوير المواقع، والـ Front-End والـ Back-End، والـ UI/UX، ومراحل إنشاء الموقع. اختار الطريقة اللي تناسبك.</p>
+ <div class="modes" role="group" aria-label="اختيار نوع المسابقة">
+   <button type="button" class="mode active" id="studentMode" aria-pressed="true"><span class="modeicon">🎓</span><span class="modetitle">وضع الطالب</span><span class="modedesc">اكتب اسمك، جاوب بنفسك، وفي النهاية شوف الدرجة والأخطاء ورسالة تشجيع</span></button>
+   <button type="button" class="mode" id="presenterMode" aria-pressed="false"><span class="modeicon">🧑‍🏫</span><span class="modetitle">وضع المحاضر</span><span class="modedesc">اعرض الأسئلة على Zoom أو البروجيكتور، وبعد كل سؤال اكشف الإجابة والشرح</span></button>
+ </div>
+ <div class="entry" id="nameBox"><label for="studentName">اسم الطالب</label><input type="text" id="studentName" placeholder="اكتب اسمك هنا…" autocomplete="name" maxlength="70" aria-describedby="nameHelp nameError"/><span class="small" id="nameHelp">اكتب اسمك بالحروف العربية أو الإنجليزية (من غير أرقام).</span><span class="error" id="nameError" role="alert"></span></div>
+ <div><button type="button" class="primary" id="startBtn">ابدأ الاختبار 🚀</button></div>
+ <div class="facts"><span>📚 ٢٠ سؤال</span><span>✅ تصحيح تلقائي</span><span>📊 درجات وإجابات غلط</span><span>🔒 بدون حساب أو إنترنت</span></div>
+</section>
+<section class="panel hidden" id="quiz" aria-live="polite">
+ <div class="quiztop"><span class="tag" id="counter">السؤال ١ من ٢٠</span><span class="topic" id="topic"></span></div>
+ <div class="progress" role="progressbar" aria-label="نسبة التقدم" aria-valuemin="0" aria-valuemax="20" aria-valuenow="0" id="progress"><div class="progressfill" id="progressFill"></div></div>
+ <h2 class="question" id="question"></h2>
+ <div class="answers" id="answers"></div>
+ <div class="feedback hidden" id="feedback"></div>
+ <p class="tip" id="helper">اختار إجابة واحدة، وبعدها اضغط على السؤال التالي.</p>
+ <div class="controls"><div class="actions"><button class="primary" type="button" id="revealBtn">إظهار الإجابة الصحيحة ✓</button><button class="primary" type="button" id="nextBtn">السؤال التالي ←</button></div><button class="secondary" type="button" id="prevBtn">→ السؤال السابق</button></div>
+</section>
+<section class="panel hidden" id="end" aria-live="polite">
+ <div class="final">
+  <div class="trophy" aria-hidden="true">🏆</div>
+  <h2 id="resultTitle">برافو عليك!</h2>
+  <p class="message" id="resultMessage"></p>
+  <div class="stats" id="stats"></div>
+  <div class="endbuttons"><button type="button" class="primary" id="restartBtn">جرّب المسابقة تاني ↻</button><button type="button" class="secondary hidden" id="reviewBtn" aria-expanded="false">راجع إجاباتك 🔍</button><button type="button" class="secondary hidden" id="printBtn">طباعة / حفظ النتيجة PDF</button></div>
+  <div class="review hidden" id="review"></div>
+  <p class="note" id="localNotice">معلومة: الملف بيحسب النتيجة على جهازك فقط، ومش بيبعتها تلقائيًا للمحاضر.</p>
+ </div>
+</section>
+<footer class="footer"><span>كل محاولة بتعلمك حاجة جديدة ✨</span><span><button id="fullscreenBtn" type="button">⛶ ملء الشاشة</button> · بيشتغل بدون إنترنت</span></footer>
+</main>
+<script>
+(() => {
+'use strict';
+const questions = [
+     // المحور ١: أساسيات HTML وCSS وJavaScript
+     { topic:'١ • أساسيات الويب | HTML', q:'إيه الوظيفة الأساسية للـ HTML في الموقع؟', options:['بناء وترتيب محتوى الصفحة','تغيير ألوان الصفحة فقط','حفظ بيانات المستخدمين'], correct:0, why:'HTML بتحدد هيكل ومحتوى صفحة الويب، زي العناوين والفقرات والصور والروابط.' },
+     { topic:'١ • أساسيات الويب | CSS', q:'لو عايزين نغيّر لون زرار أو شكل الخط في الموقع، هنستخدم إيه؟', options:['HTML','CSS','قاعدة البيانات'], correct:1, why:'CSS مسؤولة عن تنسيق شكل الموقع: الألوان والخطوط والمسافات وترتيب العناصر.' },
+     { topic:'١ • أساسيات الويب | JavaScript', q:'مين اللي بيخلّي زرار في الموقع يعمل حاجة لما نضغط عليه؟', options:['JavaScript','CSS فقط','اسم الدومين'], correct:0, why:'JavaScript بتضيف التفاعل والسلوك للصفحة، زي فتح قائمة أو عرض رسالة عند الضغط.' },
+     { topic:'١ • أساسيات الويب', q:'إيه أشهر ٣ تقنيات بنبدأ بيهم في الـ Front-End؟', options:['Python وSQL وJava','HTML وCSS وJavaScript','Photoshop وWord وExcel'], correct:1, why:'HTML لبناء المحتوى، وCSS للشكل، وJavaScript للتفاعل. دول أساس تطوير واجهات الويب.' },
+     { topic:'١ • أساسيات الويب', q:'لو إنت لسه مبتدئ، إيه ترتيب مناسب لتعلّم أساسيات Front-End؟', options:['JavaScript ثم CSS ثم HTML','HTML ثم CSS ثم JavaScript','Backend ثم Database ثم HTML'], correct:1, why:'البداية الشائعة والأسهل: نفهم هيكل الصفحة بـ HTML، ثم تنسيقها بـ CSS، وبعدها نضيف التفاعل بـ JavaScript.' },
+
+     // المحور ٢: Front-End وBack-End
+     { topic:'٢ • Front-End', q:'الـ Front-End هو الجزء اللي…', options:['المستخدم بيشوفه وبيتعامل معاه','بيخزّن بيانات الموقع بس','بيصلّح شبكة الإنترنت'], correct:0, why:'Front-End هي واجهة الموقع اللي بتظهر في المتصفح: الصور والأزرار والقوائم والمحتوى.' },
+     { topic:'٢ • Back-End', q:'الـ Back-End بيعمل إيه غالبًا؟', options:['يختار لون الأزرار','يعالج الطلبات وينفّذ منطق الموقع على السيرفر','يرسم أيقونات الموقع فقط'], correct:1, why:'Back-End بيتعامل مع العمليات اللي بتتم وراء الواجهة، زي معالجة طلب تسجيل الدخول والتعامل مع البيانات.' },
+     { topic:'٢ • Front-End vs Back-End', q:'إيه الفرق الأساسي بين Front-End وBack-End؟', options:['الاتنين مسؤولين عن شكل الصفحة بس','Front-End للواجهة وBack-End للعمليات وراءها','Front-End للإنترنت وBack-End للكهرباء'], correct:1, why:'الـ Front-End بيعرض الواجهة ويدير تفاعل المستخدم، والـ Back-End بيعالج العمليات والبيانات على السيرفر.' },
+     { topic:'٢ • قواعد البيانات', q:'بيانات المستخدمين والطلبات بتتخزّن غالبًا فين؟', options:['في لون الموقع','في قاعدة بيانات (Database)','في صورة اللوجو'], correct:1, why:'قواعد البيانات مخصصة لتنظيم وتخزين البيانات، والـ Back-End غالبًا بيتعامل معاها بشكل آمن.' },
+     { topic:'٢ • Front-End Developer', q:'مين المسؤول عن تحويل التصميم لواجهة موقع تفاعلية؟', options:['Front-End Developer','Database Administrator','Network Engineer'], correct:0, why:'مطور الـ Front-End بيحوّل التصميم لواجهة بتشتغل في المتصفح، وبيبرمج تفاعل المستخدم معاها.' },
+     { topic:'٢ • المتصفح والسيرفر', q:'لما الموقع يحتاج بيانات من السيرفر، المتصفح بيعمل إيه؟', options:['بيبعت طلب (Request)','بيطفي الجهاز','بيغيّر شكل الشاشة تلقائيًا'], correct:0, why:'المتصفح أو تطبيق الواجهة بيبعت Request للسيرفر، والسيرفر بيرجع Response فيه النتيجة أو البيانات المطلوبة.' },
+
+     // المحور ٣: UI وUX
+     { topic:'٣ • UI vs UX', q:'هل الـ UI والـ UX نفس الحاجة؟', options:['أيوه، مفيش فرق','لأ، الـ UI الواجهة والـ UX التجربة','الـ UX خاص بالألوان'], correct:1, why:'الـ UI بيركّز على شكل وعناصر الواجهة، أما الـ UX فبيركّز على تجربة المستخدم وسهولة تحقيق هدفه.' },
+     { topic:'٣ • تجربة المستخدم', q:'لو الموقع جميل بس صعب في الاستخدام، المشكلة غالبًا فين؟', options:['في سرعة الإنترنت فقط','في UX','في اسم الموقع'], correct:1, why:'الجمال مش كفاية لوحده؛ تجربة المستخدم لازم تساعد الزائر يوصل للي عايزه بسهولة ووضوح.' },
+     { topic:'٣ • Responsive Design', q:'يعني إيه Responsive Design؟', options:['الموقع بيشتغل من غير إنترنت','تصميم بيتكيف مع أحجام الشاشات','الموقع لازم يكون كله صور'], correct:1, why:'التصميم المتجاوب بيغيّر ترتيب وأحجام العناصر علشان الصفحة تبقى مناسبة للموبايل والتابلت والكمبيوتر.' },
+     { topic:'٣ • UI Design', q:'أنهي مثال من دول يُعتبر جزء من تصميم الـ UI؟', options:['لون الزرار وشكل الخط','حفظ كلمة المرور في قاعدة بيانات','تشغيل السيرفر'], correct:0, why:'الـ UI بيشمل العناصر اللي المستخدم بيشوفها: الأزرار والخطوط والألوان والأيقونات وترتيب الواجهة.' },
+
+     // المحور ٤: رحلة بناء الموقع
+     { topic:'٤ • مراحل إنشاء المواقع', q:'إيه أفضل ترتيب منطقي لبناء موقع جديد؟', options:['نشر ثم تصميم ثم فكرة','فكرة ثم تصميم ثم تطوير ثم اختبار ونشر','اختبار قبل تحديد فكرة الموقع'], correct:1, why:'بنبدأ بفهم الفكرة والهدف والجمهور، ثم التصميم، فالتطوير، وبعدها الاختبار والنشر.' },
+     { topic:'٤ • الفكرة', q:'في مرحلة الفكرة، أول حاجة بنحددها إيه؟', options:['هدف الموقع ومين هيستخدمه','لون كل زرار بالتفصيل','اسم آخر ملف برمجي'], correct:0, why:'قبل التصميم والبرمجة لازم نعرف الموقع هيحل مشكلة إيه، ومين الجمهور المستهدف.' },
+     { topic:'٤ • التصميم', q:'في مرحلة التصميم بنجهز إيه؟', options:['شكل الصفحات وطريقة تنقّل المستخدم بينها','فاتورة الإنترنت','نسخة نهائية من السيرفر فقط'], correct:0, why:'بنرتب الشاشات والعناصر والألوان ومسار المستخدم، وممكن نعمل Wireframe أو Prototype.' },
+     { topic:'٤ • الاختبار', q:'ليه بنختبر الموقع قبل ما ننشره؟', options:['علشان نكتشف الأخطاء ونتأكد إنه شغال','علشان نلغي جميع الصفحات','علشان نمنع أي حد يستخدمه'], correct:0, why:'الاختبار بيكشف مشاكل الأزرار والروابط والعرض على الشاشات المختلفة، وبيساعدنا نصلّحها قبل النشر.' },
+     { topic:'٤ • النشر', q:'معنى «نشر الموقع» إيه؟', options:['نخلي الموقع متاح للناس على الإنترنت','نمسح ملفات الموقع','نحوّل الصفحة لصورة بس'], correct:0, why:'في مرحلة النشر بنرفع الموقع على استضافة مناسبة ونخليه متاح للزوار عبر رابط، وقد نربط له دومين.' }
+   ];
+const $=id=>document.getElementById(id);
+const ar=n=>String(n).replace(/\d/g,x=>'٠١٢٣٤٥٦٧٨٩'[Number(x)]);
+const views=['intro','quiz','end'];
+let mode='student',name='',idx=0,picks=Array(questions.length).fill(null),revealed=Array(questions.length).fill(false);
+function showView(section){views.forEach(id=>$(id).classList.toggle('hidden',id!==section));window.scrollTo?.(0,0)}
+function chooseMode(next){mode=next;const student=next==='student';$('nameBox').classList.toggle('hidden',!student);$('studentMode').classList.toggle('active',student);$('presenterMode').classList.toggle('active',!student);$('studentMode').setAttribute('aria-pressed',String(student));$('presenterMode').setAttribute('aria-pressed',String(!student));$('startBtn').textContent=student?'ابدأ الاختبار 🚀':'ابدأ عرض الأسئلة 🎤';$('nameError').textContent=''}
+function validName(v){const t=v.trim().replace(/\s+/g,' ');return t.length>=2 && /^(?:[\p{L}\p{M}]+(?:[\p{L}\p{M}\s'’\-]*[\p{L}\p{M}])?)$/u.test(t)}
+function start(){if(mode==='student'){
+  const v=$('studentName').value.trim().replace(/\s+/g,' ');
+  if(!validName(v)){$('nameError').textContent='من فضلك اكتب اسم صحيح بالحروف فقط (حرفين على الأقل).';$('studentName').focus();return}
+  name=v;
+ }else name='';idx=0;picks=Array(questions.length).fill(null);revealed=Array(questions.length).fill(false);render();}
+function render(){showView('quiz');const q=questions[idx],isStudent=mode==='student';$('counter').textContent=`السؤال ${ar(idx+1)} من ${ar(questions.length)}`;$('topic').textContent=q.topic;$('question').textContent=q.q;
+ $('progress').setAttribute('aria-valuenow',String(idx+1));$('progressFill').style.width=`${100*(idx+1)/questions.length}%`;
+ const list=$('answers');list.replaceChildren();q.options.forEach((option,i)=>{
+  const b=document.createElement('button');b.type='button';b.className='answer';
+  if(!isStudent&&revealed[idx]){if(i===q.correct)b.classList.add('correct');else if(picks[idx]===i)b.classList.add('wrong')}
+  else if(picks[idx]===i)b.classList.add('selected');
+  b.disabled=!isStudent&&revealed[idx];b.setAttribute('aria-pressed',String(picks[idx]===i));
+  const k=document.createElement('span');k.className='letter';k.textContent='ABC'[i];
+  const t=document.createElement('span');t.textContent=option;b.append(k,t);
+  b.addEventListener('click',()=>{if(mode==='student'||!revealed[idx]){picks[idx]=i;render()}});list.appendChild(b);
+ });
+ const hasReveal=!isStudent&&revealed[idx];$('feedback').classList.toggle('hidden',!hasReveal);
+ if(hasReveal){$('feedback').replaceChildren();const a=document.createElement('strong');a.textContent='✅ الإجابة الصحيحة: '+q.options[q.correct];const b=document.createElement('span');b.textContent='السبب: '+q.why;$('feedback').append(a,b)}
+ $('revealBtn').classList.toggle('hidden',isStudent||hasReveal);$('nextBtn').classList.toggle('hidden',!isStudent&&!hasReveal);
+ $('nextBtn').textContent=idx===questions.length-1?(isStudent?'عرض نتيجتي 🏆':'ختام العرض 🏁'):'السؤال التالي ←';
+ $('nextBtn').disabled=isStudent&&picks[idx]===null;
+ $('prevBtn').disabled=idx===0;
+ $('helper').textContent=isStudent?'اختار إجابة واحدة. الإجابات الصحيحة هتظهر في المراجعة بعد ما تخلص كل الأسئلة.':'خلي الطلاب يختاروا A أو B أو C، وبعدها اكشف الإجابة واشرح السبب.';
+}
+function reveal(){if(mode!=='presenter')return;revealed[idx]=true;render()}
+function next(){if(mode==='student'&&picks[idx]===null)return;if(mode==='presenter'&&!revealed[idx])return;if(idx<questions.length-1){idx++;render()}else result()}
+function stat(label,value,type=''){const node=document.createElement('div');node.className='stat '+type;const a=document.createElement('div');a.className='statnum';a.textContent=value;const b=document.createElement('div');b.className='statlabel';b.textContent=label;node.append(a,b);return node}
+function result(){showView('end');$('review').replaceChildren();$('review').classList.add('hidden');$('reviewBtn').setAttribute('aria-expanded','false');$('reviewBtn').textContent='راجع إجاباتك 🔍';const student=mode==='student';
+ const correct=picks.filter((p,i)=>p===questions[i].correct).length;const wrong=picks.filter((p,i)=>p!==null&&p!==questions[i].correct).length;const answered=picks.filter(p=>p!==null).length;
+ const stats=$('stats');stats.replaceChildren();
+ if(student){const pct=Math.round(100*correct/questions.length);
+  stats.append(stat('درجتك',`${ar(correct)} / ${ar(questions.length)}`),stat('إجابات صحيحة',ar(correct),'good'),stat('إجابات خاطئة',ar(wrong),'bad'),stat('النسبة المئوية',`${ar(pct)}%`));
+  const rank=pct>=90?'ممتاز':pct>=70?'شغل جميل':pct>=50?'مجهود كويس':'أهم حاجة إنك بدأت';
+  $('resultTitle').textContent=`${rank} يا ${name}! 🎉`;
+  $('resultMessage').textContent=pct>=90?`شكرًا على تعبك ومجهودك يا ${name}! درجتك بتعكس تركيزك، وخليك فاكر إن كل حاجة جديدة بتتعلمها بتقربك من هدفك. استمر!`:pct>=70?`برافو يا ${name}! مجهودك واضح، وإجاباتك بتقول إنك فاهم الأساسيات. راجع اللي فاتك وكمّل، كل خطوة تعليم بتفرق!`:pct>=50?`شكرًا على اجتهادك يا ${name}! عندك أساس كويس تقدر تبني عليه. راجع أخطاءك، وكل سؤال بتفهمه بيخليك أقوى.`:`شكرًا إنك حاولت وكملت للنهاية يا ${name}! الدرجة مش نهاية الرحلة. راجع الإجابات بهدوء وجرّب تاني؛ مع كل محاولة هتتعلم أكتر وتتحسن.`;
+  $('reviewBtn').classList.remove('hidden');$('printBtn').classList.remove('hidden');$('localNotice').classList.remove('hidden');
+ }else{
+  $('resultTitle').textContent='برافو عليكم يا أبطال! 👏';
+  $('resultMessage').textContent='كده خلصنا أسئلة تطوير الويب. شكرًا لكل طالب شارك وسأل وحاول؛ كل معلومة جديدة بتقربكم من إنكم تعملوا موقع بإيديكم.';
+  stats.append(stat('عدد الأسئلة',ar(questions.length)),stat('اختيارات صحيحة بالجمهور',ar(correct),'good'),stat('اختيارات غير صحيحة',ar(wrong),'bad'),stat('أسئلة بدون اختيار',ar(questions.length-answered)));
+  $('reviewBtn').classList.add('hidden');$('printBtn').classList.add('hidden');$('localNotice').classList.add('hidden');
+ }
+}
+function buildReview(){const root=$('review');root.replaceChildren();const head=document.createElement('h3');const errors=picks.filter((p,i)=>p!==questions[i].correct).length;head.textContent=errors?`مراجعة الأخطاء (${ar(errors)})`:'كل إجاباتك صح! 🎉';root.append(head);
+ questions.forEach((q,i)=>{if(picks[i]===q.correct)return;const card=document.createElement('article');card.className='reviewitem';const h=document.createElement('h4');h.textContent=`السؤال ${ar(i+1)}: ${q.q}`;
+ const user=document.createElement('p');user.className='red';user.textContent='إجابتك: '+(picks[i]===null?'لم تجب':q.options[picks[i]]);
+ const trueAnswer=document.createElement('p');trueAnswer.className='green';trueAnswer.textContent='الإجابة الصحيحة: '+q.options[q.correct];const why=document.createElement('p');why.textContent='الشرح: '+q.why;card.append(h,user,trueAnswer,why);root.append(card)});
+}
+function toggleReview(){const box=$('review'),opening=box.classList.contains('hidden');if(opening)buildReview();box.classList.toggle('hidden',!opening);$('reviewBtn').setAttribute('aria-expanded',String(opening));$('reviewBtn').textContent=opening?'إخفاء المراجعة':'راجع إجاباتك 🔍';if(opening)box.scrollIntoView({behavior:'smooth',block:'start'})}
+function restart(){idx=0;picks=Array(questions.length).fill(null);revealed=Array(questions.length).fill(false);showView('intro');$('studentName').focus()}
+$('studentMode').addEventListener('click',()=>chooseMode('student'));
+$('presenterMode').addEventListener('click',()=>chooseMode('presenter'));
+$('startBtn').addEventListener('click',start);$('studentName').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();start()}});
+$('revealBtn').addEventListener('click',reveal);$('nextBtn').addEventListener('click',next);$('prevBtn').addEventListener('click',()=>{if(idx>0){idx--;render()}});
+$('restartBtn').addEventListener('click',restart);$('reviewBtn').addEventListener('click',toggleReview);$('printBtn').addEventListener('click',()=>window.print());
+$('fullscreenBtn').addEventListener('click',async()=>{try{if(!document.fullscreenElement)await document.documentElement.requestFullscreen();else await document.exitFullscreen()}catch(e){alert('اضغط F11 من لوحة المفاتيح لعرض الصفحة بملء الشاشة.')}});
+document.addEventListener('keydown',e=>{if(e.target.closest('input, textarea, select, button'))return;if($('quiz').classList.contains('hidden'))return;const k=e.key.toLowerCase();const i='abc'.indexOf(k);const n=i>=0?i:('123'.includes(k)?Number(k)-1:-1);if(n>=0&&(mode==='student'||!revealed[idx])){picks[idx]=n;render()}if(k==='arrowleft'){if(!($('nextBtn').classList.contains('hidden'))&&!$('nextBtn').disabled)next()}if(k==='arrowright'&&idx>0){idx--;render()}});
+})();
+</script>
+</body>
+</html>
